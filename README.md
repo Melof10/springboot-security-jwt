@@ -27,7 +27,7 @@ autenticación (devolviendo un token) y el de autorización (restringiendo el ac
    
 4) Vamos a levantar nuestra aplicación para que se creen `tres` tablas nuevas en nuestra Base de Datos, siempre y cuando nuestro proyecto esté conectado a la DB. 
    Para corroborar la conexión, puede inspeccionar el archivo [`application.properties`](https://github.com/Melof10/springboot-security-jwt/blob/main/src/main/resources/application.properties) 
-   de este proyecto, en mi caso mi base de datos se llama `auth`.
+   de este proyecto, en mi caso mi base de datos se llama `auth`
 
     ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/database.png)
 
@@ -44,12 +44,12 @@ Ya tenemos todo listo comenzar a utilizar nuestra aplicación.
 
 ## Resultados
 
-* Registro de usuario con rol `Admin`
+* Registro de usuario con rol `Admin` y `User`
   
    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-register-admin.png)
   
 
-* Inicio de Sesión con rol `Admin` y `email`
+* Inicio de Sesión con rol `Admin` y `User`, identificándome con él `email` y `password`
   
    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-admin.png)
   
@@ -59,12 +59,12 @@ Ya tenemos todo listo comenzar a utilizar nuestra aplicación.
   ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-register-user.png)
 
 
-* Inicio de Sesión con rol `User` y `username`
+* Inicio de Sesión con rol `User`, identificándome con él `email` y `password`
 
    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-user.png)
    
 
 Como verán tendremos dos formas de iniciar sesión, con el email ó username (uno u otro) y una contraseña.
 
-Lógicamente el código es totalmente modificable, solo se hizo para dar el puntapie inicial con el fin de implementar todo lo relacionado
-al proceso de Autenticación y Autorización.
+Lógicamente el código es totalmente modificable, solo se hizo para dar el puntapié inicial con el fin de implementar todo lo relacionado
+ál proceso de Autenticación y Autorización.
