@@ -15,14 +15,34 @@ autenticación (devolviendo un token) y el de autorización (restringiendo el ac
    que se encuentra en el siguiente path [`/src/main/resources`](https://github.com/Melof10/springboot-security-jwt/tree/main/src/main/resources) 
    de este proyecto.
    
-   ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/properties.png)
+   ``` properties
+   # Security
+   jwt.secret=secret
+   jwt.expiration=604800
+   ```
    
    Puede cambiar el valor de esas properties, lo importante es que existan.
 
 
 3) Agregar al [`pom.xml`](https://github.com/Melof10/springboot-security-jwt/blob/main/pom.xml) las siguientes dependencias
    
-   ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/dependencias.png)
+   ``` xml
+   <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+   <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-security</artifactId>
+   </dependency>
+   <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+   <dependency>
+        <groupId>io.jsonwebtoken</groupId>
+        <artifactId>jjwt</artifactId>
+        <version>0.9.1</version>
+   </dependency>
+   <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-validation</artifactId>
+   </dependency>
+   ```
 
    
 4) Vamos a levantar nuestra aplicación para que se creen `tres` tablas nuevas en nuestra Base de Datos, siempre y cuando nuestro proyecto esté conectado a la DB. 
@@ -32,9 +52,14 @@ autenticación (devolviendo un token) y el de autorización (restringiendo el ac
     ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/database.png)
 
 
-5) Hacer dos `INSERT` en la tabla `roles`
-   
-   ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/insert.png)
+5) Hacer los siguientes `INSERT` en la tabla `roles`
+
+    ``` mysql
+    INSERT INTO roles VALUES(NULL, 'ROLE_ADMIN');    
+    ```
+    ``` mysql    
+    INSERT INTO roles VALUES(NULL, 'ROLE_USER');
+    ```
    
    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/roles.png)
 
