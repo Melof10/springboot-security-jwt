@@ -61,7 +61,7 @@ autenticación (devolviendo un token) y el de autorización (restringiendo el ac
     INSERT INTO roles VALUES(NULL, 'ROLE_USER');
     ```
    
-   ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/roles.png)
+    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/roles.png)
 
 
 Ya tenemos todo listo comenzar a utilizar nuestra aplicación.
@@ -71,23 +71,30 @@ Ya tenemos todo listo comenzar a utilizar nuestra aplicación.
 
 * Registro de usuario con rol `Admin` y `User`
   
-   ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-register-admin.png)
+    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-register-admin.png)
   
 
 * Inicio de Sesión con rol `Admin` y `User`, identificándome con él `email` y `password`
   
-   ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-admin.png)
+    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-admin.png)
   
 
 * Registro de usuario con rol `User`
 
-  ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-register-user.png)
+    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-register-user.png)
 
 
 * Inicio de Sesión con rol `User`, identificándome con él `email` y `password`
 
-   ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-user.png)
+    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-user.png)
    
+
+* Así quedarán nuestras tablas `users` y `role_user` después de registrar a dos usuarios diferentes con sus respectivos roles
+
+    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/table-users.png)
+  
+    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/table-role_user.png)
+
 
 Como verán tendremos dos formas de iniciar sesión, con el email ó username (uno u otro) y una contraseña.
 
