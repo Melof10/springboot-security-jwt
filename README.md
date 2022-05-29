@@ -20,16 +20,21 @@ proyecto de Spring Boot.
 3) Agregar al `pom.xml` las siguientes dependencias
    
    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/dependencias.png)
-   
 
-4) Hacer dos `INSERT` en la tabla `roles`
+   
+4) Vamos a levantar nuestra aplicación para que se creen `tres` tablas nuevas en nuestra Base de Datos, siempre y cuando nuestro proyecto esté conectado a la DB.
+
+    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/database.png)
+
+
+5) Hacer dos `INSERT` en la tabla `roles`
    
    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/insert.png)
    
    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/roles.png)
 
 
-Ya tenemos todo listo para lanzar nuestra aplicación
+Ya tenemos todo listo para lanzar nuestra aplicación, al iniciar la aplicación las tablas se crearán en su base de datos.
 
 
 ## Resultados
