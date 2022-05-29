@@ -2,27 +2,32 @@
 
 Se creó este proyecto con el fin de desarrollar tanto el proceso de autenticación como el de autorización.
 El propósito de este módulo es poder implementar las librerías de Spring Security y JWT para poder generar el proceso de
-autenticación (devolviendo un token) y el de autorización (restringiendo el acceso a ciertos endpoints).
+autenticación (devolviendo un token) y el de autorización (restringiendo el acceso a ciertos endpoints dependiendo el rol de cada usuario).
 
 ## Pasos a seguir
 
-1) Copiar y Pegar el paquete `security` que se encuentra dentro del siguiente path de este proyecto `/src/main/java/com/melof10/auth` a su 
-proyecto de Spring Boot.
+1) Copiar y Pegar el paquete [`security`](https://github.com/Melof10/springboot-security-jwt/tree/main/src/main/java/com/melof10/auth/security) 
+   que se encuentra dentro del siguiente path de este proyecto [`/src/main/java/com/melof10/auth`](https://github.com/Melof10/springboot-security-jwt/tree/main/src/main/java/com/melof10/auth) 
+   a su proyecto de Spring Boot.
    
    
-2) Colocar las properties para JWT en `aplication.properties` que se encuentra en el siguiente path `/src/main/resources` de este proyecto.
+2) Colocar las properties para JWT en [`aplication.properties`](https://github.com/Melof10/springboot-security-jwt/blob/main/src/main/resources/application.properties) 
+   que se encuentra en el siguiente path [`/src/main/resources`](https://github.com/Melof10/springboot-security-jwt/tree/main/src/main/resources) 
+   de este proyecto.
    
    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/properties.png)
    
    Puede cambiar el valor de esas properties, lo importante es que existan.
 
 
-3) Agregar al `pom.xml` las siguientes dependencias
+3) Agregar al [`pom.xml`](https://github.com/Melof10/springboot-security-jwt/blob/main/pom.xml) las siguientes dependencias
    
    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/dependencias.png)
 
    
-4) Vamos a levantar nuestra aplicación para que se creen `tres` tablas nuevas en nuestra Base de Datos, siempre y cuando nuestro proyecto esté conectado a la DB.
+4) Vamos a levantar nuestra aplicación para que se creen `tres` tablas nuevas en nuestra Base de Datos, siempre y cuando nuestro proyecto esté conectado a la DB. 
+   Para corroborar la conexión, puede inspeccionar el archivo [`application.properties`](https://github.com/Melof10/springboot-security-jwt/blob/main/src/main/resources/application.properties) 
+   de este proyecto, en mi caso mi base de datos se llama `auth`.
 
     ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/database.png)
 
@@ -34,7 +39,7 @@ proyecto de Spring Boot.
    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/roles.png)
 
 
-Ya tenemos todo listo para lanzar nuestra aplicación, al iniciar la aplicación las tablas se crearán en su base de datos.
+Ya tenemos todo listo comenzar a utilizar nuestra aplicación.
 
 
 ## Resultados
@@ -60,3 +65,6 @@ Ya tenemos todo listo para lanzar nuestra aplicación, al iniciar la aplicación
    
 
 Como verán tendremos dos formas de iniciar sesión, con el email ó username (uno u otro) y una contraseña.
+
+Lógicamente el código es totalmente modificable, solo se hizo para dar el puntapie inicial con el fin de implementar todo lo relacionado
+al proceso de Autenticación y Autorización.
