@@ -4,7 +4,7 @@ Se creó este proyecto con el fin de desarrollar tanto el proceso de autenticaci
 El propósito de este módulo es poder implementar las librerías de Spring Security y JWT para poder generar el proceso de
 autenticación (devolviendo un token) y el de autorización (restringiendo el acceso a ciertos endpoints).
 
-Para eso siga los siguientes pasos.
+## Pasos a seguir
 
 1) Copiar y Pegar el paquete `security` que se encuentra dentro del siguiente path de este proyecto `/src/main/java/com/melof10/auth` a su 
 proyecto de Spring Boot.
