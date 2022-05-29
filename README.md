@@ -10,14 +10,14 @@ Para eso siga los siguientes pasos.
 proyecto de Spring Boot.
    
    
-2) Colocar las properties para JWT en `aplication.properties` que se encuentra en el siguiente path `/src/main/resources`.
+2) Colocar las properties para JWT en `aplication.properties` que se encuentra en el siguiente path `/src/main/resources` de este proyecto.
    
    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/properties.png)
    
    Puede cambiar el valor de esas properties, lo importante es que existan.
 
 
-3) Agregar al pom.xml las siguientes dependencias
+3) Agregar al `pom.xml` las siguientes dependencias
    
    ![Image text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/dependencias.png)
    
@@ -39,7 +39,7 @@ Ya tenemos todo listo para lanzar nuestra aplicación
    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-register-admin.png)
   
 
-* Inicio de Sesión con rol `Admin` y logueandose con el `email`
+* Inicio de Sesión con rol `Admin` y `email`
   
    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-admin.png)
   
@@ -49,7 +49,9 @@ Ya tenemos todo listo para lanzar nuestra aplicación
   ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-register-user.png)
 
 
-* Inicio de Sesión con rol `User` y logueandose con el `username`
+* Inicio de Sesión con rol `User` y `username`
 
    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-user.png)
    
+
+Como verán tendremos dos formas de iniciar sesión, con el email ó username (uno u otro) y una contraseña.
