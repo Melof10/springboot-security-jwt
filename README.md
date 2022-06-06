@@ -42,6 +42,12 @@ autenticación (devolviendo un token) y el de autorización (restringiendo el ac
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-validation</artifactId>
    </dependency>
+   <!-- https://mvnrepository.com/artifact/com.nimbusds/nimbus-jose-jwt -->
+   <dependency>
+        <groupId>com.nimbusds</groupId>
+        <artifactId>nimbus-jose-jwt</artifactId>
+        <version>9.23</version>
+   </dependency>
    ```
 
    
