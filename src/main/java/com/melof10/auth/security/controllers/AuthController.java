@@ -1,5 +1,6 @@
 package com.melof10.auth.security.controllers;
 
+import com.melof10.auth.security.jwt.JwtProvider;
 import com.melof10.auth.security.services.IRoleService;
 import com.melof10.auth.security.services.IUserService;
 import com.melof10.auth.security.utils.Message;
@@ -9,8 +10,6 @@ import com.melof10.auth.security.dto.NewUserDTO;
 import com.melof10.auth.security.entities.Role;
 import com.melof10.auth.security.entities.User;
 import com.melof10.auth.security.enums.RoleName;
-import com.melof10.auth.security.services.impl.RoleService;
-import com.melof10.auth.security.services.impl.UserService;
 import com.melof10.auth.security.jwt.JwtReturnReq;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,6 +22,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.text.ParseException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -45,6 +45,9 @@ public class AuthController {
 
     @Autowired
     private JwtReturnReq jwtReturnReq;
+
+    @Autowired
+    private JwtProvider jwtProvider;
 
     private Authentication authentication;
 
@@ -86,5 +89,12 @@ public class AuthController {
         JwtDTO jwtDTO = jwtReturnReq.getTokenRequest(authentication);
 
         return new ResponseEntity(jwtDTO, HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/refresh")
+    public ResponseEntity<JwtDTO> refresh(@RequestBody JwtDTO jwtDTO) throws ParseException {
+        String token = jwtProvider.refreshToken(jwtDTO);
+        JwtDTO jwt = new JwtDTO(token);
+        return new ResponseEntity(jwt, HttpStatus.OK);
     }
 }
