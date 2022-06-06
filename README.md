@@ -90,7 +90,7 @@ Ya tenemos todo listo comenzar a utilizar nuestra aplicación.
     ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-register-user.png)
 
 
-* Inicio de Sesión con rol `User`, identificándome con él `email` y `password`
+* Inicio de Sesión con rol `User`, identificándome con él `username` y `password`
 
     ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-user.png)
    
