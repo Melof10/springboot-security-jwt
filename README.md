@@ -93,6 +93,11 @@ Ya tenemos todo listo comenzar a utilizar nuestra aplicación.
 * Inicio de Sesión con rol `User`, identificándome con él `username` y `password`
 
     ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-login-user.png)
+
+
+* Refresh token. Recibe en el body un token para actualizarlo y darle una nueva fecha de caducidad
+
+    ![Image Text](https://github.com/Melof10/springboot-security-jwt/blob/main/docs/res-refresh-token.png)
    
 
 * Así quedarán nuestras tablas `users` y `role_user` después de registrar a dos usuarios diferentes con sus respectivos roles
