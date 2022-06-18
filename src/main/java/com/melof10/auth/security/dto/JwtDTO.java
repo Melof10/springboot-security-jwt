@@ -1,7 +1,10 @@
 package com.melof10.auth.security.dto;
 
+import javax.validation.constraints.NotNull;
+
 public class JwtDTO {
 
+    @NotNull(message = "Token required")
     private String token;
 
     public JwtDTO() {

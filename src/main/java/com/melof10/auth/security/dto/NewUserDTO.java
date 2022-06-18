@@ -2,23 +2,26 @@ package com.melof10.auth.security.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
 public class NewUserDTO {
 
-    @NotBlank
+    @NotNull(message = "Fullname required")
     private String fullname;
 
-    @Email
+    @NotNull(message = "Email required")
+    @Email(message = "Email invalid")
     private String email;
 
-    @NotBlank
+    @NotNull(message = "Username required")
     private String username;
 
-    @NotBlank
+    @NotBlank(message = "Password required")
     private String password;
 
+    @NotNull(message = "Roles required")
     private Set<String> roles = new HashSet<>();
 
     public String getFullname() {
