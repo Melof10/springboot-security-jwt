@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.text.ParseException;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @RestController
@@ -48,6 +49,9 @@ public class AuthController {
 
     @Autowired
     private JwtProvider jwtProvider;
+
+    @Autowired
+    private Optional<User> user;
 
     private Authentication authentication;
 
@@ -81,10 +85,27 @@ public class AuthController {
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Message("Invalid fields or email"), HttpStatus.BAD_REQUEST);
 
-        if(loginUserDTO.getUsername() != null)
-            authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUserDTO.getUsername(), loginUserDTO.getPassword()));
-        else
-            authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUserDTO.getEmail(), loginUserDTO.getPassword()));
+        if(loginUserDTO.getEmail() != null) {
+            user = iUserService.getByEmail(loginUserDTO.getEmail());
+            if(!iUserService.existsByEmail(loginUserDTO.getEmail()) || !passwordEncoder.matches(loginUserDTO.getPassword(), user.get().getPassword())) {
+                return new ResponseEntity(new Message("Email or Password incorrect"), HttpStatus.BAD_REQUEST);
+            } else {
+                authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUserDTO.getEmail(), loginUserDTO.getPassword()));
+            }
+        } else if(loginUserDTO.getEmail() == null && loginUserDTO.getUsername() == null) {
+            return new ResponseEntity(new Message("Email required"), HttpStatus.BAD_REQUEST);
+        }
+
+        if(loginUserDTO.getUsername() != null) {
+            user = iUserService.getByUsername(loginUserDTO.getUsername());
+            if(!iUserService.existsByUsername(loginUserDTO.getUsername()) || !passwordEncoder.matches(loginUserDTO.getPassword(), user.get().getPassword())) {
+                return new ResponseEntity(new Message("Username or Password incorrect"), HttpStatus.BAD_REQUEST);
+            } else {
+                authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginUserDTO.getUsername(), loginUserDTO.getPassword()));
+            }
+        } else if(loginUserDTO.getEmail() == null && loginUserDTO.getUsername() == null){
+            return new ResponseEntity(new Message("Username required"), HttpStatus.BAD_REQUEST);
+        }
 
         JwtDTO jwtDTO = jwtReturnReq.getTokenRequest(authentication);
 
@@ -92,7 +113,7 @@ public class AuthController {
     }
 
     @PostMapping(value = "/refresh")
-    public ResponseEntity<JwtDTO> refresh(@RequestBody JwtDTO jwtDTO) throws ParseException {
+    public ResponseEntity<JwtDTO> refresh(@Valid @RequestBody JwtDTO jwtDTO) throws ParseException {
         String token = jwtProvider.refreshToken(jwtDTO);
         JwtDTO jwt = new JwtDTO(token);
         return new ResponseEntity(jwt, HttpStatus.OK);
